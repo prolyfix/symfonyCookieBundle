@@ -10,5 +10,8 @@
         <service id="Prolyfix\SymfonyCookieNotificationBundle\Controller\TestController"  autowire="true" />
         <service id="Prolyfix\SymfonyCookieNotificationBundle\EventSubscriber\TwigEventSubscriber"  autowire="true" />
         <service id="Prolyfix\SymfonyCookieNotificationBundle\Controller\CookieConsentController"  autowire="true" />
+        <service id="Prolyfix\SymfonyCookieNotificationBundle\Command\CookieAddCategoryCommand"  autowire="true" />
+        <service id="Prolyfix\SymfonyCookieNotificationBundle\Command\CookieAddPartnerCommand"  autowire="true" />
+        <service id="Prolyfix\SymfonyCookieNotificationBundle\Command\CookieAddScriptCommand"  autowire="true" />
     </services>
 </container>
