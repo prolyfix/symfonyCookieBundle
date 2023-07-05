@@ -1,0 +1,12 @@
+{% for cookieRule in cookieRules %}
+    {% if cookieRule.accepted %}
+        {% if cookieRule.category.name == "Essential"%}
+            <script> window.essential = true </script>
+        {% endif %}
+        {% for script in cookieRule.category.cookieScripts %}
+            <!--- {{script.name}} -->
+
+            {{script.script | raw}}
+        {% endfor %}
+    {% endif    %}
+{% endfor %}

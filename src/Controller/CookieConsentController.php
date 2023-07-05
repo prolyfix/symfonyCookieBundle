@@ -25,7 +25,7 @@ class CookieConsentController extends AbstractController
         $this->retention = $retention;
     }
 
-    #[Route('/cookie/consent', name: 'app_cookie_consent')]
+    #[Route('/consent', name: 'app_cookie_consent')]
     public function index(Request $request, EntityManagerInterface $em, ParameterBagInterface $params): Response
     {
         $CategoryNames = $request->get('category');
@@ -58,7 +58,7 @@ class CookieConsentController extends AbstractController
         return $response;
     }
 
-    #[Route('cookie/accept', name:'cookie_accept')]
+    #[Route('accept', name:'cookie_accept')]
     public function cookieAccept()
     {
         

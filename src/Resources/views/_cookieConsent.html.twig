@@ -1,0 +1,61 @@
+{% if cookieRules is defined %}
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade"  {{ stimulus_controller('cookie') }} id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">{%trans%}cookie.modal.title{%endtrans%}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	  	<div class="intro cookie-tab">
+			{% trans %} cookie.modal.introductionText {% endtrans %}
+		</div>
+		<div class="detailed cookie-tab" style="display:none">
+			<h2>{%trans%}cookie.detailedTitle{%endtrans%}</h2>
+			{% for cookieCategory in cookieCategories %}
+				<h3>{{cookieCategory.name}} <input type="checkbox" data-category="{{cookieCategory.name}}" {{stimulus_action('cookie','acceptSingle')}}></h3>
+				<p> {{cookieCategory.description}} </p>
+				<h4>{%trans%}cookie.detailedScripts{%endtrans%}</h4>
+				<ul>
+				{% for script in cookieCategory.cookieScripts %}
+				<li> <b>{{script.name}}</b> {{script.description}} </li>
+				{% endfor %}
+				</ul>
+			{% endfor %}
+		</div>
+		{% if cookieShowPartner == true %}
+			<div class="partners cookie-tab" style="display:none">
+				partners
+			</div>
+		{% endif %}
+      </div>
+	  <div class="row">
+			<div class="col-4">
+				<button class="btn btn-primary" {{ stimulus_action('cookie','acceptAll') }} id="cookie_accept_all">
+					{% trans %} acceptAll.button {% endtrans %}
+				</button>
+			</div>
+			<div class="col-4">
+				<button class="btn btn-primary" {{ stimulus_action('cookie','showDetailed') }}>
+					{% trans %} detailed.button {% endtrans %}
+				</button>
+			</div>	
+			{% if cookieShowPartner == true %}
+				<div class="col-4">
+					<button class="btn btn-primary" {{ stimulus_action('cookie','showPartner') }}>
+						{% trans %} partner.button {% endtrans %}
+					</button>
+				</div>							
+			{% endif %}		
+  		</div>
+    </div>
+  </div>
+</div>
+
+{% endif %}

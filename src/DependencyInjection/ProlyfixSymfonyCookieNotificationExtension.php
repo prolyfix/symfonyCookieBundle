@@ -15,5 +15,9 @@ class ProlyfixSymfonyCookieNotificationExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
         $definition = $container->getDefinition('Prolyfix\SymfonyCookieNotificationBundle\Controller\CookieConsentController');
         $definition->setArgument(0, $config['strict']);
+        $definition->setArgument(1, $config['retention']);
+        $definition = $container->getDefinition('Prolyfix\SymfonyCookieNotificationBundle\EventSubscriber\TwigEventSubscriber');
+        $definition->setArgument(0, $config['showPartner']);
+
     }
 }

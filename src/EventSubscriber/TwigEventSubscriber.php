@@ -19,13 +19,15 @@ class TwigEventSubscriber implements EventSubscriberInterface
     private $cookieNotificationsRepository;
     private $cookieCategoryRepository;
     private $params;
+    private bool $showPartner;
 
     public function __construct(
+        bool $showPartner,
         Environment $twig, 
         RequestStack $container, 
         CookieNotificationRepository $cookieNotificationsRepository,
         CookieCategoryRepository $cookieCategoryRepository,
-        ParameterBagInterface $params
+        ParameterBagInterface $params,
     )
     {
         $this->twig = $twig;
@@ -33,6 +35,7 @@ class TwigEventSubscriber implements EventSubscriberInterface
         $this->cookieNotificationsRepository = $cookieNotificationsRepository;
         $this->cookieCategoryRepository = $cookieCategoryRepository;
         $this->params = $params;
+        $this->showPartner = $showPartner;
     }
     public function onKernelController(ControllerEvent $event)
     {
@@ -49,6 +52,7 @@ class TwigEventSubscriber implements EventSubscriberInterface
        
        $this->twig->addGlobal('cookieRules', $cookiRulesFinal);
        $this->twig->addGlobal('cookieCategories', $cookieCategories);
+       $this->twig->addGlobal('cookieShowPartner', $this->showPartner);
     }
 
     public static function getSubscribedEvents()

@@ -13,6 +13,7 @@ class Configuration implements ConfigurationInterface
         $rootNode  
             ->children()
                 ->booleanNode('strict')->defaultTrue()->end()
+                ->booleanNode('showPartner')->defaultFalse()->end()
                 ->scalarNode('retention')->defaultValue('+1 year')->end();
         return $treeBuilder;
     }

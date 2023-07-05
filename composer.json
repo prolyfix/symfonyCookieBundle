@@ -1,0 +1,21 @@
+{
+    "name": "prolyfix/symfony-cookie-notification-bundle",
+    "description": "bundle which aim is to provide a cookie notification service",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Prolyfix\\SymfonyCookieNotificationBundle\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marc Baudot",
+            "email": "marc.baudot@macareux.de"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "symfony/webpack-encore-bundle": "^2.0"
+    }
+}
