@@ -1,5 +1,5 @@
 {
-    "name": "prolyfix/symfony-cookie-notification-bundle",
+    "name": "prolyfix/symfony-cookie-bundle",
     "description": "bundle which aim is to provide a cookie notification service",
     "type": "symfony-bundle",
     "license": "MIT",
