@@ -7,6 +7,8 @@
         <defaults autowire="true" autoconfigure="true"/>
         <service id="Prolyfix\SymfonyCookieNotificationBundle\Repository\CookieCategoryRepository"  autowire="true" />
         <service id="Prolyfix\SymfonyCookieNotificationBundle\Repository\CookieNotificationRepository"  autowire="true" />
+        <service id="Prolyfix\SymfonyCookieNotificationBundle\Repository\CookieScriptRepository"  autowire="true" />
+        <service id="Prolyfix\SymfonyCookieNotificationBundle\Repository\CookiePartnerRepository"  autowire="true" />
         <service id="Prolyfix\SymfonyCookieNotificationBundle\Controller\TestController"  autowire="true" />
         <service id="Prolyfix\SymfonyCookieNotificationBundle\EventSubscriber\TwigEventSubscriber"  autowire="true" />
         <service id="Prolyfix\SymfonyCookieNotificationBundle\Controller\CookieConsentController"  autowire="true" />
